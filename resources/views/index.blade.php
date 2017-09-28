@@ -82,9 +82,10 @@
   </div>
 </div>
 
-@include('modalLogin')
-@include('modalSignup')
+@include('auth.login')
+@include('auth.register')
 @include('modalContact')
+
 
 <!-- Add Google Maps -->
 <div id="googleMap">
