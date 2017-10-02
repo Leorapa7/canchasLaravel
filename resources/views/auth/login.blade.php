@@ -1,52 +1,45 @@
 <div id="modalLogin" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="form-style-8">
-                <h2>Iniciar Sesión</h2>
+            <h2>Login</h2>
+            
+            <form method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
 
+                <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <input id="email" type="email" placeholder="Mail" name="email" value="{{ old('email') }}" required autofocus>
 
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
 
-                            <form method="POST" action="{{ route('login') }}">
-                                {{ csrf_field() }}
+                </div>
 
-                                <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
-                                         <input id="email" type="email" placeholder="Mail" name="email" value="{{ old('email') }}" required autofocus>
+                <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
 
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
+                    <input id="password" type="password" placeholder="Contraseña" name="password" required>
 
-                                </div>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
 
-                                <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                </div>
 
-                                        <input id="password" type="password" placeholder="Contraseña" name="password" required>
+                <div>
+                    <a  href="{{ route('password.request') }}">
+                        ¿Olvidaste tu Contraseña?
+                    </a>
 
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
+                    <button class="login" type="submit" >
+                        Login
+                    </button>
+                </div>
 
-                                </div>
-
-
-                                            <label>
-                                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                            </label>
-
-
- 
-                                        <button class="enviar" type="submit" >
-                                            Login
-                                        </button>
-
-                                        <a  href="{{ route('password.request') }}">
-                                            Forgot Your Password?
-                                        </a>
-
-                            </form>
+            </form>
 
          </div>               
     </div>

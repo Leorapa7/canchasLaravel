@@ -1,5 +1,12 @@
 
-.form-style-8{
+form a,
+form input,
+form label{
+    color: black;
+}
+
+.form-style-8
+{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
     padding: 30px;
@@ -30,7 +37,6 @@
 .form-style-8 input[type="tel"],
 .form-style-8 input[type="time"],
 .form-style-8 input[type="url"],
-.form-style-8 input[type="checkbox"],
 .form-style-8 input[type="password"],
 .form-style-8 input[type="time"],
 .form-style-8 textarea,
@@ -90,4 +96,35 @@
 .form-style-8 input[type="submit"]:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
+}
+
+.sin_espacios{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    height: 10%;
+}
+
+.login{    
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color:  #4ac82e ;
+    border: 1px solid  #31841e ;
+    display: inline;
+    align-content: right;
+
+    margin-left: 40%;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+form label{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    display: inline;
 }
