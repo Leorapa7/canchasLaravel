@@ -1,0 +1,41 @@
+.rotate-icon{
+    -webkit-transform: rotate(-225deg);
+    -moz-transform: rotate(-225deg);
+    transform: rotate(-225deg);
+}
+
+.panel{
+    border: 0px;
+    border-bottom: 1px solid #30bb64;
+}
+.panel-group .panel+.panel{
+    margin-top: 0px;
+}
+.panel-group .panel{
+    border-radius: 0px;
+}
+.panel-heading{
+    border-radius: 0px;
+    color: white;
+    padding: 25px 15px;
+}
+.panel-custom>.panel-heading{
+    background-color: #38cc70;
+}
+.panel-group .panel:last-child{
+    border-bottom: 5px solid #2ba659;
+}
+
+panel-collapse .collapse.in{
+    border-bottom:0;
+}
+
+.title_day{
+	text-align: center;
+}
+
+.dia_collapsable{
+	font: 16px Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+

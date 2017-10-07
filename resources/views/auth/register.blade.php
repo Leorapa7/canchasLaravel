@@ -43,6 +43,8 @@
                 </div>
 
                 <div>
+                    <input type="hidden" type="text" name="tipe" value="user">
+
                     <input id="password-confirm" placeholder="Confirmar Contraseña" type="password" name="password_confirmation" required>
                 </div>
 
