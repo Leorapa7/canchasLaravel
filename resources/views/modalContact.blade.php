@@ -1,7 +1,7 @@
 <div id="modalContact" class="modal fade" role="dialog">
   <div class="modal-dialog">
 		<div class="form-style-8">
-		  <h2>Consultas</h2>
+		  <h2>Contacto</h2>
 		  <form>
 		    <input type="text" name="nombre" placeholder="Nombre" required/>
 		    <input type="email" name="mail" placeholder="Mail" required/>

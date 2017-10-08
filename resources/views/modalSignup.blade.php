@@ -1,4 +1,4 @@
-<div id="modalSignup" class="modal fade" role="dialog">
+<div id="modalRegistrarCancha" class="modal fade" role="dialog">
   <div class="modal-dialog">
 		<div class="form-style-8">
 		  <h2>Registro</h2>

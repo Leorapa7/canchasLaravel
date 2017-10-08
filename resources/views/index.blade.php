@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -85,9 +87,12 @@
 @include('auth.login')
 @include('auth.register')
 @include('modalContact')
-
+@include('modalRegistrarCancha')
+@include('modalConfirmarReserva')
 
 <!-- Add Google Maps -->
 <div id="googleMap">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.9852588371605!2d-58.3980406851489!3d-34.60453426504756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaea679f7673%3A0x91d6f7af3c33a407!2sAv.+Corrientes+2028%2C+C1045AAP+CABA!5e0!3m2!1ses-419!2sar!4v1506184669757" allowfullscreen></iframe>
 </div>
+
+@include('footer')
