@@ -2,7 +2,8 @@
   <div class="modal-dialog">
       <div class="form-style-8">
         <h2>Cargar Cancha</h2>
-        <form>
+        <form method="post" action="/cancha">
+          {{ csrf_field() }}
           <input type="text" name="nombre" placeholder="Nombre de la Cancha" required/>
           	<select name="tamano">
           	  <option value="" disabled selected hidden>Tamaño</option>
@@ -15,14 +16,14 @@
           <label class="radio_box">Días Habilitados</label>
           <label class="checkbox-inline"><input type="checkbox" value="Lunes">Lun</label>
       		<label class="checkbox-inline"><input type="checkbox" value="Martes">Mar</label>
-      		<label class="checkbox-inline"><input type="checkbox" value="Miercoles">Mie</label> 
+      		<label class="checkbox-inline"><input type="checkbox" value="Miercoles">Mie</label>
       		<label class="checkbox-inline"><input type="checkbox" value="Jueves">Jue</label>
       		<label class="checkbox-inline"><input type="checkbox" value="Viernes">Vie</label>
-      		<label class="checkbox-inline"><input type="checkbox" value="Sabado">Sab</label> 
-      		<label class="checkbox-inline"><input type="checkbox" value="Domingo">Dom</label> 	
-          <input type="time" name="hora_ini" min="0" max="10000" placeholder="Horario de Apertura 10:00" required/>
-      	  <input type="time" name="hora_fin" min="0" max="10000" placeholder="Horario de Cierre 00:00" required/>
-          <input type="button" value="Registrar Cancha" />
+      		<label class="checkbox-inline"><input type="checkbox" value="Sabado">Sab</label>
+      		<label class="checkbox-inline"><input type="checkbox" value="Domingo">Dom</label>
+          <input type="time" name="hora_ini" min="0" max="10000" placeholder="Horario de Apertura 10:00" />
+      	  <input type="time" name="hora_fin" min="0" max="10000" placeholder="Horario de Cierre 00:00" />
+          <input type="submit" value="Registrar Cancha" />
         </form>
       </div>
   </div>
