@@ -24,3 +24,7 @@ Route::resource('cancha','CanchaController')->middleware('auth');
 Route::get('/reservas/{tipo}', 'ReservaController@getReservas')->middleware('auth');
 
 Route::put('/reserva/{id}', 'ReservaController@reservaUsuario')->middleware('auth');
+
+Route::put('/cancelarReserva/{id}', 'ReservaController@cancelarReserva')->middleware('auth');
+
+Route::get('/misReservas/{userId}', 'ReservaController@getMisReservas')->middleware('auth');

@@ -6,14 +6,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><span><img src="images/world-cup.png" class ="icons-navbar"></span>Fútbol Da Vinci</a>
+      <a class="navbar-brand" href="/home"><span><img src="{{ asset('images/world-cup.png')}}" class ="icons-navbar"></span>Fútbol Da Vinci</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><span><img src="images/football.png" class ="icons-navbar"></span>Home</a></li>
+        <li class="active"><a href="#"><span><img src="{{ asset('images/football.png')}}" class ="icons-navbar"></span>Home</a></li>
         @if (Auth::check())
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="images/stadium.png" class ="icons-navbar"></span>Reservar Cancha<span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="{{ asset('images/stadium.png')}}" class ="icons-navbar"></span>Reservar Cancha<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/reservas/5">Cancha N° 5</a></li>
             <li><a href="/reservas/7">Cancha N° 7</a></li>
@@ -22,15 +22,15 @@
         </li>
 
         <!-- Este debe ir solo si es un user-->
-        <li><a href="#"><span><img src="images/footbal-shoe.png" class ="icons-navbar"></span>Mis Reservas</a></li>
+        <li><a href="/misReservas/{{Auth::user()->id}}"><span><img src="{{ asset('images/footbal-shoe.png')}}" class ="icons-navbar"></span>Mis Reservas</a></li>
         @endif
 
-        <li><a data-toggle="modal" data-target="#modalContact"><span><img src="images/email.png" class ="icons-navbar"></span>Contacto</a></li>
+        <li><a data-toggle="modal" data-target="#modalContact"><span><img src="{{ asset('images/email.png')}}" class ="icons-navbar"></span>Contacto</a></li>
 
         @if (Auth::check() && Auth::user()->type === 'admin')
         <!-- Estos son los que hay que poner para el admin -->
-        <li><a data-toggle="modal" data-target="#modalConfirmarReserva"><span><img src="images/footbal-shoe.png" class ="icons-navbar"></span>Confirmar Reserva</a></li>
-        <li><a data-toggle="modal" data-target="#modalRegistrarCancha"><span><img src="images/estadio.png" class ="icons-navbar"></span>Generar Cancha</a></li>
+        <li><a data-toggle="modal" data-target="#modalConfirmarReserva"><span><img src="{{ asset('images/footbal-shoe.png')}}" class ="icons-navbar"></span>Confirmar Reserva</a></li>
+        <li><a data-toggle="modal" data-target="#modalRegistrarCancha"><span><img src="{{ asset('images/estadio.png')}}" class ="icons-navbar"></span>Generar Cancha</a></li>
         @endif
 
       </ul>

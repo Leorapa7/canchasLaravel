@@ -14,7 +14,7 @@
                     <h4 class="title_day" class="panel-title">
                         <a class="dia_collapsable" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <img src="{{ asset('images/football.png')}}" class ="icons-navbar">
-                            Turnos disponibles
+                            Mis Reservas
                         </a>
                     </h4>
                 </div>
@@ -28,7 +28,8 @@
                               <th>Tamaño</th>
                               <th>Horario</th>
                               <th>Precio</th>
-                              <th>Reserva</th>
+                              <th>Codigo Reserva</th>
+                              <th>Cancelar Reserva</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -43,10 +44,11 @@
                               @else
                               <td>${{$res->precio_noche}}</td>
                               @endif
-                              <td><form action="/reserva/{{$res->id}}" method="post">
+                              <td>{{$res->codReserva}}</td>
+                              <td><form action="/cancelarReserva/{{$res->id}}" method="post">
                                   {{ method_field('PUT') }}
                                   {{ csrf_field() }}
-                                  <button>Reserva</button>
+                                  <button>Cancelar</button>
                               </form>
                             </td>
                             </tr>

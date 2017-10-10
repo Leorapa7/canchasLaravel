@@ -67,6 +67,28 @@ class ReservaController extends Controller
       return view('index');
     }
 
+    public function getMisReservas($userId)
+    {
+      $reservas = DB::table('reservas')
+                      ->join('canchas', 'cancha_id', '=', 'canchas.id')
+                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche')
+                      ->where('reservas.user_id',$userId)
+                      ->orderBy('reservas.fecha','asc',',','reservas.horario','asc')
+                      ->get();
+
+      return view('misReservas', array('reservas' => $reservas));
+    }
+
+    public function cancelarReserva($id)
+    {
+      $reserva = Reserva::find($id);
+      $reserva->user_id = null;
+      $reserva->estado = 'Disponible';
+      $reserva->save();
+
+      return view('index');
+    }
+
     public function show($id)
     {
         //
