@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
-                
+
                     <input id="password" placeholder="Contrseña" type="password" class="form-control" name="password" required>
 
                     @if ($errors->has('password'))
@@ -43,7 +43,7 @@
                 </div>
 
                 <div>
-                    <input type="hidden" type="text" name="tipe" value="user">
+                    <input type="hidden" type="text" name="type" value="user">
 
                     <input id="password-confirm" placeholder="Confirmar Contraseña" type="password" name="password_confirmation" required>
                 </div>
@@ -56,5 +56,5 @@
             </form>
 
         </div>
-    </div>  
+    </div>
 </div>
