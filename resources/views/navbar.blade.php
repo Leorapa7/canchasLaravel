@@ -11,6 +11,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#"><span><img src="images/football.png" class ="icons-navbar"></span>Home</a></li>
+        @if (Auth::check())
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="images/stadium.png" class ="icons-navbar"></span>Reservar Cancha<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -22,14 +23,15 @@
 
         <!-- Este debe ir solo si es un user-->
         <li><a href="#"><span><img src="images/footbal-shoe.png" class ="icons-navbar"></span>Mis Reservas</a></li>
-
+        @endif
 
         <li><a data-toggle="modal" data-target="#modalContact"><span><img src="images/email.png" class ="icons-navbar"></span>Contacto</a></li>
 
+        @if (Auth::check() && Auth::user()->type === 'admin')
         <!-- Estos son los que hay que poner para el admin -->
         <li><a data-toggle="modal" data-target="#modalConfirmarReserva"><span><img src="images/footbal-shoe.png" class ="icons-navbar"></span>Confirmar Reserva</a></li>
         <li><a data-toggle="modal" data-target="#modalRegistrarCancha"><span><img src="images/estadio.png" class ="icons-navbar"></span>Generar Cancha</a></li>
-
+        @endif
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

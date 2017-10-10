@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('cancha','CanchaController');
+Route::resource('cancha','CanchaController')->middleware('auth');
 
-Route::resource('reserva','ReservaController');
+Route::get('/reservas/{tipo}', 'ReservaController@getReservas')->middleware('auth');
 
-Route::get('/reservas/{tipo}', 'ReservaController@getReservas');
+Route::put('/reserva/{id}', 'ReservaController@reservaUsuario')->middleware('auth');

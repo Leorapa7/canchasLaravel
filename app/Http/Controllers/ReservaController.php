@@ -56,6 +56,17 @@ class ReservaController extends Controller
         $fecha = date('Y-m-d', strtotime($fecha.' + '.$i.' days'));
       }
     }
+
+    public function reservaUsuario($id)
+    {
+      $reserva = Reserva::find($id);
+      $reserva->user_id = \Auth::user()->id;
+      $reserva->estado = 'Reservado';
+      $reserva->save();
+
+      return view('index');
+    }
+
     public function show($id)
     {
         //

@@ -1,10 +1,10 @@
 
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/contact.css">
-  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/contact.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/footer.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
@@ -24,27 +24,27 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="images/2-1.jpg" alt="Cancha5">
+        <img src="{{ asset('images/2-1.jpg')}}" alt="Cancha5">
         <div class="carousel-caption">
           <h1>Canchas de Fútbol N° 5</h1>
           <h3>Cubiertas y Descubiertas</h3>
-        </div>      
+        </div>
       </div>
 
       <div class="item">
-        <img src="images/1-1.jpg" alt="Cancha7">
+        <img src="{{ asset('images/1-1.jpg')}}" alt="Cancha7">
         <div class="carousel-caption">
           <h1>Canchas de Futbol N° 7 y 9</h1>
           <h3>Cesped Sintético</h3>
-        </div>      
+        </div>
       </div>
-    
+
       <div class="item">
-        <img src="images/3-1.jpg" alt="Los Angeles">
+        <img src="{{ asset('images/3-1.jpg')}}" alt="Los Angeles">
         <div class="carousel-caption">
           <h1>Competencias</h1>
           <h3>Torneos Sabados y Domingos</h3>
-        </div>      
+        </div>
       </div>
     </div>
 
@@ -67,19 +67,19 @@
     <div class="col-sm-4">
       <h3 class="titulo" class="text-center">Canchas Cubiertas</h3>
       <a href="#demo" data-toggle="collapse">
-        <img src="images/Cubierta.jpg" class="img-circle" alt="Random Name" width="255" height="255">
+        <img src="{{ asset('images/Cubierta.jpg')}}" class="img-circle" alt="Random Name" width="255" height="255">
       </a>
     </div>
     <div class="col-sm-4">
       <h3 class="titulo" class="text-center">Canchas Descubiertas</h3>
       <a href="#demo2" data-toggle="collapse">
-        <img src="images/Descubierta.jpg" class="img-circle" alt="Random Name" width="255" height="255">
+        <img src="{{ asset('images/Descubierta.jpg')}}" class="img-circle" alt="Random Name" width="255" height="255">
       </a>
     </div>
     <div class="col-sm-4">
       <h3 class="titulo" class="text-center">Cesped Sintético</h3>
       <a href="#demo3" data-toggle="collapse">
-        <img src="images/1.jpg" class="img-circle" alt="Random Name" width="255" height="255">
+        <img src="{{ asset('images/1.jpg')}}" class="img-circle" alt="Random Name" width="255" height="255">
     </div>
   </div>
 </div>

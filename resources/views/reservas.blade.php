@@ -42,7 +42,13 @@
                               @else
                               <td>${{$res->precio_noche}}</td>
                               @endif
-                              <td><button type="button" class="btn btn-primary btn-sm">Reserva</button></td>
+                              <!--<td><a href="/reserva/{{$res->id}}" class="btn btn-primary btn-sm">Reserva</button></td>-->
+                              <td><form action="/reserva/{{$res->id}}" method="post">
+                                  {{ method_field('PUT') }}
+                                  {{ csrf_field() }}
+                                  <button>Reserva</button>
+                              </form>
+                            </td>
                             </tr>
                             @endforeach
                           </tbody>
