@@ -28,11 +28,12 @@ class ReservaController extends Controller
     {
       $reservas = DB::table('reservas')
                       ->join('canchas', 'cancha_id', '=', 'canchas.id')
-                      ->select('reservas.*')
+                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche')
                       ->where('canchas.tamanio', 'cancha_'.$tipo)
+                      ->where('reservas.estado','Disponible')
                       ->get();
-                      
-      return view('pruebaCancha', array('reservas' => $reservas));
+
+      return view('reservas', array('reservas' => $reservas));
     }
 
     public function generarReservas($canchaId)
