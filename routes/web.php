@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cancha','CanchaController');
 
 Route::resource('reserva','ReservaController');
+
+Route::get('/reservas/{tipo}', 'ReservaController@getReservas');

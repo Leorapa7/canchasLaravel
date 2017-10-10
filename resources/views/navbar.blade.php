@@ -4,7 +4,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#"><span><img src="images/world-cup.png" class ="icons-navbar"></span>Fútbol Da Vinci</a>
     </div>
@@ -14,12 +14,12 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="images/stadium.png" class ="icons-navbar"></span>Reservar Cancha<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Cancha N° 5</a></li>
-            <li><a href="#">Cancha N° 7</a></li>
-            <li><a href="#">Cancha N° 9</a></li>
+            <li><a href="/reservas/5">Cancha N° 5</a></li>
+            <li><a href="/reservas/7">Cancha N° 7</a></li>
+            <li><a href="/reservas/9">Cancha N° 9</a></li>
           </ul>
         </li>
-        
+
         <!-- Este debe ir solo si es un user-->
         <li><a href="#"><span><img src="images/footbal-shoe.png" class ="icons-navbar"></span>Mis Reservas</a></li>
 
@@ -59,4 +59,4 @@
       </ul>
     </div>
   </div>
-</nav> 
+</nav>

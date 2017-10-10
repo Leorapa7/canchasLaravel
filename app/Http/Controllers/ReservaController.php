@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Reserva;
 
 class ReservaController extends Controller
 {
@@ -21,28 +23,38 @@ class ReservaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function getReservas($tipo)
     {
-        //
+      $reservas = DB::table('reservas')
+                      ->join('canchas', 'cancha_id', '=', 'canchas.id')
+                      ->select('reservas.*')
+                      ->where('canchas.tamanio', 'cancha_'.$tipo)
+                      ->get();
+                      
+      return view('pruebaCancha', array('reservas' => $reservas));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function generarReservas($canchaId)
     {
-        //
-    }
+      $fecha = date('Y-m-d');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+      for ($i=1; $i < 4; $i++) {
+
+        for ($j=8; $j <24 ; $j++) {
+          $reserva = new Reserva();
+          $reserva->fecha = $fecha;
+          $reserva->horario = $j;
+          $reserva->estado = "Disponible";
+          $reserva->codReserva = mt_rand(1000,9999);
+          $reserva->user_id = null;
+          $reserva->cancha_id = $canchaId;
+          $reserva->save();
+        }
+
+        $fecha = date('Y-m-d', strtotime($fecha.' + '.$i.' days'));
+      }
+    }
     public function show($id)
     {
         //

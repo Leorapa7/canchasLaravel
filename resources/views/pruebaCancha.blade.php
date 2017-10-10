@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
   <body>
-    {{ $cancha }}
+    {{ count($reservas) }}
   </body>
 </html>

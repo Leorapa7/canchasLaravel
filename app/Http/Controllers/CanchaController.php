@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cancha;
+use App\Http\Controllers\ReservaController;
 
 class CanchaController extends Controller
 {
@@ -45,6 +46,9 @@ class CanchaController extends Controller
         $cancha->longitud = 123;
         $cancha->save();
 
+        $resController = new ReservaController();
+        $resController->generarReservas($cancha->id);
+        //$res.index();
         return view('index');
     }
 
