@@ -28,6 +28,9 @@
                               <th>Precio</th>
                               <th>Codigo Reserva</th>
                               <th>Estado</th>
+                              @if (Auth::check() && Auth::user()->type === 'admin')
+                              <th>Usuario</th>
+                              @endif
                               <th>Cancelar Reserva</th>
                             </tr>
                           </thead>
@@ -51,6 +54,9 @@
                               @endif
                               <td>{{$res->codReserva}}</td>
                               <td>{{$res->estado}}</td>
+                              @if (Auth::check() && Auth::user()->type === 'admin')
+                              <td>{{$res->user_id}}</td>
+                              @endif
                               <td><form action="/cancelarReserva/{{$res->id}}" method="post">
                                   {{ method_field('PUT') }}
                                   {{ csrf_field() }}

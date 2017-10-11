@@ -81,12 +81,23 @@ class ReservaController extends Controller
 
     public function getMisReservas($userId)
     {
-      $reservas = DB::table('reservas')
+      if (\Auth::user()->type === 'admin') {
+        $reservas = DB::table('reservas')
+                      ->join('canchas', 'cancha_id', '=', 'canchas.id')
+                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche','canchas.tamanio')
+                      ->where('reservas.estado','!=','Disponible')
+                      ->orderBy('reservas.fecha','asc',',','reservas.horario','asc')
+                      ->get();
+      }
+      else{
+        $reservas = DB::table('reservas')
                       ->join('canchas', 'cancha_id', '=', 'canchas.id')
                       ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche','canchas.tamanio')
                       ->where('reservas.user_id',$userId)
+                      ->where('reservas.estado','!=','Disponible')
                       ->orderBy('reservas.fecha','asc',',','reservas.horario','asc')
                       ->get();
+      }
 
       return view('misReservas', array('reservas' => $reservas));
     }
@@ -112,7 +123,7 @@ class ReservaController extends Controller
 
       $reserva = Reserva::find($reservaS[0]->id);
       if ($reserva !== null) {
-        $reserva->estado = 'Seniado';
+        $reserva->estado = 'Confirmado';
         $reserva->save();
       }
 

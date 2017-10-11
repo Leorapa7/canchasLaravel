@@ -29,15 +29,16 @@
 
                 </div>
 
-                <div>
+<!--                <div>
                     <a  href="{{ route('password.request') }}">
                         ¿Olvidaste tu Contraseña?
                     </a>
-
+-->
                     <button class="login" type="submit" >
                         Login
                     </button>
                 </div>
+
 
             </form>
 

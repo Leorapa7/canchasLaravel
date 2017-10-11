@@ -32,7 +32,8 @@
 
                 <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
 
-                    <input id="password" placeholder="Contrseña" type="password" class="form-control" name="password" required>
+                    <input id="password" placeholder="Contrseña" type="password" class="form-control" name="password" 
+                        pattern=".{6,20}" required title="La Contraseña debe tener entre 6 y 20 caracteres">
 
                     @if ($errors->has('password'))
                         <span class="help-block">
@@ -45,7 +46,8 @@
                 <div>
                     <input type="hidden" type="text" name="type" value="user">
 
-                    <input id="password-confirm" placeholder="Confirmar Contraseña" type="password" name="password_confirmation" required>
+                    <input id="password-confirm" placeholder="Confirmar Contraseña" type="password" name="password_confirmation" 
+                        pattern=".{6,20}" required title="La Contraseña debe tener entre 6 y 20 caracteres">
                 </div>
 
                 <div>
