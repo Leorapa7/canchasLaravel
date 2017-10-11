@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/reservas.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/reservas.css')}}">
   <script src="{{ asset('js/reservas.js')}}"></script>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

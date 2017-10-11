@@ -18,7 +18,7 @@ class CreateCanchasTable extends Migration
             $table->string('nombre');
             $table->float('latitud');
             $table->float('longitud');
-            $table->integer('tamanio');
+            $table->string('tamanio');
             $table->float('precio_dia');
             $table->float('precio_noche');
             $table->timestamps();

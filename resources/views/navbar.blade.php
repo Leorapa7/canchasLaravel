@@ -1,3 +1,5 @@
+@include('meta')
+
 <nav class="navbar navbar-inverse sinMargen">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -10,7 +12,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><span><img src="{{ asset('images/football.png')}}" class ="icons-navbar"></span>Home</a></li>
+        <li class="active"><a href="/home"><span><img src="{{ asset('images/football.png')}}" class ="icons-navbar"></span>Home</a></li>
         @if (Auth::check())
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="{{ asset('images/stadium.png')}}" class ="icons-navbar"></span>Reservar Cancha<span class="caret"></span></a>
@@ -62,3 +64,8 @@
     </div>
   </div>
 </nav>
+@include('auth.login')
+@include('auth.register')
+@include('modalContact')
+@include('modalRegistrarCancha')
+@include('modalConfirmarReserva')
