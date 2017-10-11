@@ -38,7 +38,13 @@
                             <tr>
                               <td>{{$res->nombre}}</td>
                               <td>{{$res->fecha}}</td>
+                              @if ($res->tamanio === 'cancha_5')
                               <td>N° 5</td>
+                              @elseif ($res->tamanio === 'cancha_7')
+                              <td>N° 7</td>
+                              @else
+                              <td>N° 9</td>
+                              @endif
                               <td>{{$res->horario}}</td>
                               @if ($res->horario < 19)
                               <td>${{$res->precio_dia}}</td>

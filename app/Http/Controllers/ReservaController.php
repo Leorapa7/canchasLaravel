@@ -75,15 +75,15 @@ class ReservaController extends Controller
       $reserva->user_id = \Auth::user()->id;
       $reserva->estado = 'Reservado';
       $reserva->save();
-
-      return view('index');
+      
+      return redirect('/misReservas' . '/' . $reserva->user_id);
     }
 
     public function getMisReservas($userId)
     {
       $reservas = DB::table('reservas')
                       ->join('canchas', 'cancha_id', '=', 'canchas.id')
-                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche')
+                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche','canchas.tamanio')
                       ->where('reservas.user_id',$userId)
                       ->orderBy('reservas.fecha','asc',',','reservas.horario','asc')
                       ->get();
