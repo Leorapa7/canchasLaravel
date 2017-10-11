@@ -29,6 +29,7 @@
                               <th>Horario</th>
                               <th>Precio</th>
                               <th>Codigo Reserva</th>
+                              <th>Estado</th>
                               <th>Cancelar Reserva</th>
                             </tr>
                           </thead>
@@ -45,6 +46,7 @@
                               <td>${{$res->precio_noche}}</td>
                               @endif
                               <td>{{$res->codReserva}}</td>
+                              <td>{{$res->estado}}</td>
                               <td><form action="/cancelarReserva/{{$res->id}}" method="post">
                                   {{ method_field('PUT') }}
                                   {{ csrf_field() }}

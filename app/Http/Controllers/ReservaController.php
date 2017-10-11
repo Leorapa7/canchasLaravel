@@ -28,7 +28,7 @@ class ReservaController extends Controller
     {
       $reservas = DB::table('reservas')
                       ->join('canchas', 'cancha_id', '=', 'canchas.id')
-                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche')
+                      ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche','canchas.tamanio')
                       ->where('canchas.tamanio', 'cancha_'.$tipo)
                       ->where('reservas.estado','Disponible')
                       ->get();
@@ -36,9 +36,16 @@ class ReservaController extends Controller
       return view('reservas', array('reservas' => $reservas));
     }
 
-    public function generarReservas($canchaId)
+    public function generarReservas($canchaId, $boolNewCancha)
     {
-      $fecha = date('Y-m-d');
+      if ($boolNewCancha) {
+        $fecha = date('Y-m-d');
+      }
+      else {
+        //viene de generar mas reservas, busco la fecha maxima que existe y le sumo un dia
+        $fecha = Reserva::where('cancha_id', $canchaId)->first()->max('fecha');
+        $fecha = date('Y-m-d', strtotime($fecha.' + 1 days'));
+      }
 
       for ($i=1; $i < 4; $i++) {
 
@@ -53,8 +60,13 @@ class ReservaController extends Controller
           $reserva->save();
         }
 
-        $fecha = date('Y-m-d', strtotime($fecha.' + '.$i.' days'));
+        $fecha = date('Y-m-d', strtotime($fecha.' + 1 days'));
       }
+    }
+
+    public function eliminarReservas($canchaId)
+    {
+      $deleted = Reserva::where('cancha_id', $canchaId)->delete();
     }
 
     public function reservaUsuario($id)
@@ -85,6 +97,24 @@ class ReservaController extends Controller
       $reserva->user_id = null;
       $reserva->estado = 'Disponible';
       $reserva->save();
+
+      return view('index');
+    }
+
+    public function confirmarReserva(Request $request)
+    {
+      $codReserva = $request->input('codReserva');
+
+      $reservaS = DB::table('reservas')
+                    ->select('reservas.*')
+                    ->where('codReserva', $codReserva)
+                    ->get();
+
+      $reserva = Reserva::find($reservaS[0]->id);
+      if ($reserva !== null) {
+        $reserva->estado = 'Seniado';
+        $reserva->save();
+      }
 
       return view('index');
     }

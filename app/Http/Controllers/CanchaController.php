@@ -15,8 +15,8 @@ class CanchaController extends Controller
      */
     public function index()
     {
-      $cancha = Cancha::all();
-      return view('pruebaCancha', array('cancha' => $cancha));
+      $canchas = Cancha::all();
+      return view('canchas', array('canchas' => $canchas));
     }
 
     public function store(Request $request)
@@ -31,9 +31,17 @@ class CanchaController extends Controller
         $cancha->save();
 
         $resController = new ReservaController();
-        $resController->generarReservas($cancha->id);
-        //$res.index();
+        $resController->generarReservas($cancha->id, true);
+
         return view('index');
+    }
+
+    public function cargarReservas($canchaId)
+    {
+      $resController = new ReservaController();
+      $resController->generarReservas($canchaId, false);
+
+      return view('index');
     }
 
     /**
@@ -46,6 +54,18 @@ class CanchaController extends Controller
     {
         $cancha = Cancha::find($id);
         return view('pruebaCancha', array('cancha' => $cancha));
+    }
+
+    public function eliminarCancha($id)
+    {
+      $cancha = Cancha::find($id);
+
+      $resController = new ReservaController();
+      $resController->eliminarReservas($id);
+
+      $cancha->delete();
+
+      return view('index');
     }
 
     public function update(Request $request, $id)

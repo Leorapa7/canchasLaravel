@@ -31,8 +31,14 @@
 
         @if (Auth::check() && Auth::user()->type === 'admin')
         <!-- Estos son los que hay que poner para el admin -->
-        <li><a data-toggle="modal" data-target="#modalConfirmarReserva"><span><img src="{{ asset('images/footbal-shoe.png')}}" class ="icons-navbar"></span>Confirmar Reserva</a></li>
-        <li><a data-toggle="modal" data-target="#modalRegistrarCancha"><span><img src="{{ asset('images/estadio.png')}}" class ="icons-navbar"></span>Generar Cancha</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="{{ asset('images/estadio.png')}}" class ="icons-navbar"></span>Panel de Control<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a data-toggle="modal" data-target="#modalConfirmarReserva"><span><img class ="icons-navbar"></span>Confirmar Reserva</a></li>
+            <li><a data-toggle="modal" data-target="#modalRegistrarCancha"><span><img class ="icons-navbar"></span>Generar Cancha</a></li>
+            <li><a href="/cancha"><span><img class ="icons-navbar"></span>Ver Canchas</a></li>
+          </ul>
+        </li>
         @endif
 
       </ul>

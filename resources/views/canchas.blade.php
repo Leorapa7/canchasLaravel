@@ -14,7 +14,7 @@
                     <h4 class="title_day" class="panel-title">
                         <a class="dia_collapsable" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <img src="{{ asset('images/football.png')}}" class ="icons-navbar">
-                            Turnos disponibles
+                            Canchas Registradas
                         </a>
                     </h4>
                 </div>
@@ -24,35 +24,38 @@
                           <thead>
                             <tr>
                               <th>Cancha</th>
-                              <th>Fecha</th>
+                              <th>Ubicacion</th>
                               <th>Tamaño</th>
-                              <th>Horario</th>
-                              <th>Precio</th>
-                              <th>Reserva</th>
+                              <th>Precio Día</th>
+                              <th>Precio Noche</th>
+                              <th>Generar Reservas</th>
+                              <th>Eliminar</th>
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach ($reservas as $res)
+                            @foreach ($canchas as $cancha)
                             <tr>
-                              <td>{{$res->nombre}}</td>
-                              <td>{{$res->fecha}}</td>
-                              @if ($res->tamanio === 'cancha_5')
+                              <td>{{$cancha->nombre}}</td>
+                              <td>{{$cancha->latitud}} - {{$cancha->longitud}}</td>
+                              @if ($cancha->tamanio === 'cancha_5')
                               <td>N° 5</td>
-                              @elseif ($res->tamanio === 'cancha_7')
+                              @elseif ($cancha->tamanio === 'cancha_7')
                               <td>N° 7</td>
                               @else
                               <td>N° 9</td>
                               @endif
-                              <td>{{$res->horario}}</td>
-                              @if ($res->horario < 19)
-                              <td>${{$res->precio_dia}}</td>
-                              @else
-                              <td>${{$res->precio_noche}}</td>
-                              @endif
-                              <td><form action="/reserva/{{$res->id}}" method="post">
+                              <td>${{$cancha->precio_dia}}</td>
+                              <td>${{$cancha->precio_noche}}</td>
+                              <td><form action="/cargarReservas/{{$cancha->id}}" method="post">
+                                {{ method_field('PUT') }}
+                                  {{ csrf_field() }}
+                                  <button>Generar</button>
+                              </form>
+                            </td>
+                              <td><form action="/eliminarCancha/{{$cancha->id}}" method="post">
                                   {{ method_field('PUT') }}
                                   {{ csrf_field() }}
-                                  <button>Reserva</button>
+                                  <button>Eliminar</button>
                               </form>
                             </td>
                             </tr>
