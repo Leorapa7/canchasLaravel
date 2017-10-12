@@ -3,6 +3,8 @@
 
   @include('navbar')
   <div class="container">
+  <input type="text" id="inputHorario" onkeyup="buscarHorario()" placeholder="Horario..">
+  <input type="text" id="inputFecha" onkeyup="buscarFecha()" placeholder="2017-01-31..">
     <div class="row">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-custom">
@@ -14,9 +16,9 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div id="collapseOne" class="panel-collapse " role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body animated zoomOut">
-                        <table class="table table-striped">
+                        <table id="tablaReservas" class="table table-striped">
                           <thead>
                             <tr>
                               <th>Cancha</th>

@@ -16,7 +16,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div id="collapseOne" class="panel-collapse " role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body animated zoomOut">
                         <table class="table table-striped">
                           <thead>
