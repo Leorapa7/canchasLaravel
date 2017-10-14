@@ -1,10 +1,12 @@
   <link rel="stylesheet" href="{{ asset('css/reservas.css')}}">
-  <script src="{{ asset('js/reservas.js')}}"></script>
+
 
 
   @include('navbar')
 
+
   <div class="container">
+    @include('filtroReservas')
     <div class="row">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-custom">
@@ -18,7 +20,7 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse " role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body animated zoomOut">
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="tablaReservas" >
                           <thead>
                             <tr>
                               <th>Cancha</th>

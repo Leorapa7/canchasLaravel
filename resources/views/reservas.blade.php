@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="{{ asset('css/reservas.css')}}">
-  <script src="{{ asset('js/reservas.js')}}"></script>
+
 
   @include('navbar')
   <div class="container">
-  <input type="text" id="inputHorario" onkeyup="buscarHorario()" placeholder="Horario..">
-  <input type="text" id="inputFecha" onkeyup="buscarFecha()" placeholder="2017-01-31..">
+     @include('filtroReservas')
+
+
     <div class="row">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-custom">

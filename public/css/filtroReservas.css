@@ -1,0 +1,30 @@
+
+.panel-filtro {
+	margin-top: 10px;
+	margin-bottom: : 10px;
+	background-color: #38cc70;
+	width: 100%;
+	height: 40px;
+}
+
+.filtros-centrado{
+	padding-top: 6px;
+	text-align: center;
+}
+
+.separacion{
+
+	margin-right: 100px !important;
+	padding-right: 40px;
+}
+
+.separacion2{
+
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+	padding-right: 40px;
+}
+
+.filtro-tipo{
+	font-size: 18px;;
+}
