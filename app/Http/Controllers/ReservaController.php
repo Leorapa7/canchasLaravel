@@ -36,6 +36,39 @@ class ReservaController extends Controller
       return view('reservas', array('reservas' => $reservas));
     }
 
+     public function getReservasNode($tipo, $hora_ini, $hora_fin, $fecha_ini, $fecha_fin)
+    {
+
+      if ($hora_fin == 'null'){
+         $hora_fin = $hora_ini;
+      }
+
+
+      if ($fecha_fin == 'null'){
+         $fecha_fin = $fecha_ini;
+      }
+
+
+      $reservas = DB::table('reservas')
+                      ->join('canchas', 'cancha_id', '=', 'canchas.id')
+                      ->select( 'canchas.nombre', 
+                                'canchas.tamanio', 
+                                'canchas.latitud', 
+                                'canchas.longitud',
+                                'canchas.precio_dia', 
+                                'canchas.precio_noche',
+                                'reservas.fecha',
+                                'reservas.horario'
+                        )
+                      ->where('canchas.tamanio', 'cancha_'.$tipo)
+                      ->whereBetween('reservas.horario', [$hora_ini, $hora_fin])
+                      ->whereBetween('reservas.fecha', [$fecha_ini, $fecha_fin])
+                      ->where('reservas.estado','Disponible')
+                      ->get();
+    echo $reservas;
+
+    }
+
     public function generarReservas($canchaId, $boolNewCancha)
     {
       if ($boolNewCancha) {
