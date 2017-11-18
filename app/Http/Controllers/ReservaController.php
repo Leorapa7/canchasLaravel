@@ -39,17 +39,26 @@ class ReservaController extends Controller
      public function getReservasNode($tipo, $hora_ini, $hora_fin, $fecha_ini, $fecha_fin)
     {
 
-      if ($hora_fin == 'null'){
-         $hora_fin = $hora_ini;
+       
+      if ($hora_ini == 'null'){
+         $hora_ini = '0';
       }
 
+      if ($hora_fin == 'null'){
+         $hora_fin = '23';
+      }
+
+      if ($fecha_ini == 'null') {
+        $fecha_ini = date('Y-m-d');
+      }
 
       if ($fecha_fin == 'null'){
-         $fecha_fin = $fecha_ini;
+         $fecha = Reserva::where('reservas.estado','Disponible')->first()->max('fecha');
+         $fecha_fin = $fecha;
       }
 
-
-      $reservas = DB::table('reservas')
+      if ($tipo != 'null'){
+                $reservas = DB::table('reservas')
                       ->join('canchas', 'cancha_id', '=', 'canchas.id')
                       ->select( 'canchas.nombre', 
                                 'canchas.tamanio', 
@@ -60,11 +69,29 @@ class ReservaController extends Controller
                                 'reservas.fecha',
                                 'reservas.horario'
                         )
+                      ->whereBetween('reservas.horario', [$hora_ini, $hora_fin])
+                      ->whereBetween('reservas.fecha', [$fecha_ini, $fecha_fin])
+                      ->where('reservas.estado','Disponible')
                       ->where('canchas.tamanio', 'cancha_'.$tipo)
+                      ->get();
+      }else{
+                $reservas = DB::table('reservas')
+                      ->join('canchas', 'cancha_id', '=', 'canchas.id')
+                      ->select( 'canchas.nombre', 
+                                'canchas.tamanio', 
+                                'canchas.latitud', 
+                                'canchas.longitud',
+                                'canchas.precio_dia', 
+                                'canchas.precio_noche',
+                                'reservas.fecha',
+                                'reservas.horario'
+                        )
                       ->whereBetween('reservas.horario', [$hora_ini, $hora_fin])
                       ->whereBetween('reservas.fecha', [$fecha_ini, $fecha_fin])
                       ->where('reservas.estado','Disponible')
                       ->get();
+      }
+
     echo $reservas;
 
     }
