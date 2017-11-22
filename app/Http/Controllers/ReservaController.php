@@ -36,9 +36,17 @@ class ReservaController extends Controller
       return view('reservas', array('reservas' => $reservas));
     }
 
-     public function getReservasNode($tipo, $hora_ini, $hora_fin, $fecha_ini, $fecha_fin)
+     public function getReservasNode(Request $request)
     {
 
+
+      $hora_ini = $request->horaDesde;
+      $hora_fin = $request->horaHasta;
+      $fecha_ini = $request->fechaDesde;
+      $fecha_fin = $request->fechaHasta;
+      $tipo = $request->tipoCancha;
+
+      //$tipo, $hora_ini, $hora_fin, $fecha_ini, $fecha_fin
        
       if ($hora_ini == 'null'){
          $hora_ini = '0';

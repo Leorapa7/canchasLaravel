@@ -23,7 +23,7 @@ Route::resource('cancha','CanchaController')->middleware('auth');
 
 Route::get('/reservas/{tipo}', 'ReservaController@getReservas')->middleware('auth');
 
-Route::get('/reservas/getReservasNode/tipo={tipo}/hora_ini={hora_ini}/hora_fin={hora_fin}/fecha_ini={fecha_ini}/fecha_fin={fecha_fin}', 'ReservaController@getReservasNode');
+Route::get('/getReservasNode', 'ReservaController@getReservasNode');
 
 Route::put('/eliminarCancha/{id}', 'CanchaController@eliminarCancha')->middleware('auth');
 
