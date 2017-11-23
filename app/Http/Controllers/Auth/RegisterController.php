@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
-    /*
+   /*          
     |--------------------------------------------------------------------------
     | Register Controller
     |--------------------------------------------------------------------------
@@ -21,6 +21,9 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    //protected $url = '';
+
 
     /**
      * Where to redirect users after registration.
@@ -63,6 +66,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (isset($data['url-redirect'])){
+            echo 'aca';
+            $this->url = '/home';
+            //$data['url-redirect'];
+        }else{
+            $this->url = '/home';
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

@@ -23,8 +23,6 @@ Route::resource('cancha','CanchaController')->middleware('auth');
 
 Route::get('/reservas/{tipo}', 'ReservaController@getReservas')->middleware('auth');
 
-Route::get('/getReservasNode', 'ReservaController@getReservasNode');
-
 Route::put('/eliminarCancha/{id}', 'CanchaController@eliminarCancha')->middleware('auth');
 
 Route::put('/cargarReservas/{id}', 'CanchaController@cargarReservas')->middleware('auth');
@@ -36,3 +34,10 @@ Route::put('/cancelarReserva/{id}', 'ReservaController@cancelarReserva')->middle
 Route::get('/misReservas/{userId}', 'ReservaController@getMisReservas')->middleware('auth');
 
 Route::post('/confirmarReserva', 'ReservaController@confirmarReserva')->middleware('auth');
+
+Route::get('/getReservasNode', 'ReservaController@getReservasNode');
+
+Route::get('/reservasTriCancha', 'ReservaController@reservasNode');
+
+Route::get('/Login/TriCancha', 'ReservaController@loginNode')
+;
