@@ -4,6 +4,11 @@
     transform: rotate(-225deg);
 }
 
+#alerta{
+    color: red;
+    font-weight: bold;
+}
+
 .panel{
     border: 0px;
     border-bottom: 1px solid #30bb64;

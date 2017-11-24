@@ -1,11 +1,8 @@
-  <link rel="stylesheet" href="{{ asset('css/reservas.css')}}">
+<link rel="stylesheet" href="{{ asset('css/reservas.css')}}">
 
+@include('navbar')
+<div class="container">
 
-
-  @include('navbar')
-
-
-  <div class="container">
     <div class="row">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-custom">
@@ -13,7 +10,7 @@
                     <h4 class="title_day" class="panel-title">
                         <a class="dia_collapsable" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <img src="{{ asset('images/football.png')}}" class ="icons-navbar">
-                            Mis Reservas
+                            Turnos disponibles
                         </a>
                     </h4>
                 </div>
@@ -48,19 +45,26 @@
                               @else
                               <td>${{$res->precio_noche}}</td>
                               @endif
-                              <td><form action="/cancelarReserva/{{$res->id}}" method="post">
+                              <td>
+                              @if ($res->estado == 'Disponible')
+                              <form action="/reserva/{{$res->id}}" method="post">
                                   {{ method_field('PUT') }}
                                   {{ csrf_field() }}
-                                  <button>Confirmar</button>
+                                  <button>Reserva</button>
                               </form>
-                            </td>
+                              @else
+                              <p id="alerta">!!!No Disponible¡¡¡</p>
+                              @endif
+                              </td>
+                              
+                            </tr>
                             </tr>
                             @endforeach
                           </tbody>
                         </table>
                     </div>
                 </div>
-        </div>
-    </div>
+          </div>
+      </div>
   </div>
 </div>
