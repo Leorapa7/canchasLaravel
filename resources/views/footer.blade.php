@@ -4,10 +4,10 @@
 
       <div class="footer-left">
 
-        <h3>Fútbol<span>Da Vinci</span><img src="images/world-cup.png" class ="icons-navbar"></h3>
+        <h3>Fútbol<span>Da Vinci</span><img src="images/world-cup.png" class ="icons-navbar"></i></h3>
 
        <div class="footer-icons">
-
+          <a href="#"><i class="fa fa-snapchat"></i></a>
           <a href="#"><i class="fa fa-facebook"></i></a>
           <a href="#"><i class="fa fa-twitter"></i></a>
           <a href="#"><i class="fa fa-instagram"></i></a>
