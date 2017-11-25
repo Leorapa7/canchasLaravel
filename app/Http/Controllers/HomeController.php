@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cache;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
-    {
-        return view('index');
+    {       
+        //$existe = Cache::has('id');
+        if (Cache::has('id')){
+            echo 'reserva';
+            return redirect('/reservasTriCancha');
+
+        }else{
+            return view('index');
+        }
     }
 }

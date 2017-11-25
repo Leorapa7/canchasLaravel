@@ -3,5 +3,9 @@
 }
 
 .sinMargen{
-	margin-bottom: 0px
+	margin-bottom: 0px;
+}
+
+nav{
+	margin-bottom: 0px !important;
 }
