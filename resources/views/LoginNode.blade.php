@@ -1,21 +1,29 @@
+@if (Auth::check())
+       <script>window.location = "/reservasTriCancha";</script>
+@else
+
+
 @include('navbar')
 
 @if ($errors->has('email'))
-    <span class="help-block">
-        <strong>{{ $errors->first('email') }}</strong>
-    </span>
+    <div class="alert alert-danger alert-dismissable" id="centrado">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{ $errors->first('email') }}</strong>
+    </div>
 @endif
 
 @if ($errors->has('password'))
-    <span class="help-block">
-        <strong>{{ $errors->first('password') }}</strong>
-    </span>
+    <div class="alert alert-danger alert-dismissable" id="centrado">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{ $errors->first('password') }}</strong>
+    </div>
 @endif
 
 @if ($errors->has('name'))
-    <span class="help-block">
-        <strong>{{ $errors->first('name') }}</strong>
-    </span>
+    <div class="alert alert-danger alert-dismissable" id="centrado">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{ $errors->first('name') }}</strong>
+    </div>
 @endif
 
         <div class="form-style-8">
@@ -61,3 +69,4 @@
             </form>
         </div>
 
+@endif

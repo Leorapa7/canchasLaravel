@@ -10,23 +10,11 @@
 
                     <input id="name" type="text" name="name" placeholder="Nombre" value="{{ old('name') }}" required autofocus>
 
-                    @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                    @endif
-
                 </div>
 
                 <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
 
                     <input id="email" type="email" placeholder="Mail" name="email" value="{{ old('email') }}" required>
-
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
 
                 </div>
 
@@ -34,12 +22,6 @@
 
                     <input id="password" placeholder="Contrseña" type="password" class="form-control" name="password" 
                         pattern=".{6,20}" required title="La Contraseña debe tener entre 6 y 20 caracteres">
-
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
 
                 </div>
 

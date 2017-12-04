@@ -30,6 +30,7 @@
                           <tbody>
                             @foreach ($reservas as $res)
                             <tr>
+                            @if ($res->estado == 'Disponible')
                               <td>{{$res->nombre}}</td>
                               <td>{{$res->fecha}}</td>
                               @if ($res->tamanio === 'cancha_5')
@@ -46,16 +47,17 @@
                               <td>${{$res->precio_noche}}</td>
                               @endif
                               <td>
-                              @if ($res->estado == 'Disponible')
+                              
                               <form action="/reserva/{{$res->id}}" method="post">
                                   {{ method_field('PUT') }}
                                   {{ csrf_field() }}
                                   <button>Reserva</button>
                               </form>
-                              @else
-                              <p id="alerta">!!!No Disponible¡¡¡</p>
-                              @endif
                               </td>
+                              @else
+                              <div class="alert alert-danger" id="centrado"><strong>La Reserva no se encuentra más disponible. Disculpe la molestia.</strong></div>
+                              @endif
+                              
                               
                             </tr>
                             </tr>

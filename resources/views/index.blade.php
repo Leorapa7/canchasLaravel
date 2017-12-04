@@ -1,5 +1,25 @@
 
 @include('navbar')
+@if ($errors->has('email'))
+    <div class="alert alert-danger alert-dismissable" id="centrado">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{ $errors->first('email') }}</strong>
+    </div>
+@endif
+
+@if ($errors->has('password'))
+    <div class="alert alert-danger alert-dismissable" id="centrado">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{ $errors->first('password') }}</strong>
+    </div>
+@endif
+
+@if ($errors->has('name'))
+    <div class="alert alert-danger alert-dismissable" id="centrado">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{ $errors->first('name') }}</strong>
+    </div>
+@endif
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
