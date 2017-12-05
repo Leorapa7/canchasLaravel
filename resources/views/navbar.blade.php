@@ -8,11 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=""><span><img src="{{ asset('images/world-cup.png')}}" class ="icons-navbar"></span>Fútbol Da Vinci</a>
+      <a class="navbar-brand" href="/"><span><img src="{{ asset('images/world-cup.png')}}" class ="icons-navbar"></span>Fútbol Da Vinci</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/home"><span><img src="{{ asset('images/football.png')}}" class ="icons-navbar"></span>Home</a></li>
+        <li class="active"><a href="/"><span><img src="{{ asset('images/football.png')}}" class ="icons-navbar"></span>Home</a></li>
         @if (Auth::check())
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><img src="{{ asset('images/stadium.png')}}" class ="icons-navbar"></span>Reservar Cancha<span class="caret"></span></a>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use Cache;
+use Cookie;
+use Session;
 
 class HomeController extends Controller
 {
@@ -26,12 +29,20 @@ class HomeController extends Controller
     public function index()
     {       
         //$existe = Cache::has('id');
-        if (Cache::has('id')){
-            echo 'reserva';
-            return redirect('/reservasTriCancha');
 
-        }else{
-            return view('index');
+        // if (Cache::has('id')){
+        //     echo 'reserva';
+        //     return redirect('/reservasTriCancha');
+
+        // }else{
+        //     return view('index');
+        // }
+
+        $value = session('id');
+        if($value != null) {
+          return redirect('/reservasTriCancha');
+        } else {
+          return redirect('/');
         }
     }
 }

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Reserva;
+use App\Http\Requests;
 use Cache;
+use Cookie;
+use Session;
 
 class ReservaController extends Controller
 {
@@ -258,7 +261,8 @@ class ReservaController extends Controller
 
     public function reservasNode(){
 
-          $id = Cache::get('id'); 
+          // $id = Cache::get('id'); 
+          $id = session('id');
           $reservas = DB::table('reservas')
                       ->join('canchas', 'cancha_id', '=', 'canchas.id')
                       ->select('reservas.*','canchas.nombre','canchas.precio_dia', 'canchas.precio_noche','canchas.tamanio')
@@ -274,7 +278,8 @@ class ReservaController extends Controller
   public function loginNode(Request $request){
 
       $id = $request->id;
-      Cache::put('id',$id, 2000);
+      // Cache::put('id',$id, 2000);
+      Session::put('id', $id);
       
       return view('LoginNode');
   }
